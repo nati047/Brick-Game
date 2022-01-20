@@ -10,6 +10,13 @@ const io = socketio(server);
 io.on("connection", (socket)=>{
   console.log("connection made");
 });
+app.get('/', (req, res) => {
+  res.sendfile('./front-end/index.html');
+});
+
+app.get('/game', (req, res) => {
+  res.sendfile('./front-end/game.html')
+});
 
 server.listen(PORT, () =>{
   console.log('server running');
